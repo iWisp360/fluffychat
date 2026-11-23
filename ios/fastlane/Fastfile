@@ -51,7 +51,7 @@ def setup_signing()
 end
 
 def prepare_flutter()
-    sh("flutter", "pub", "add", "fcm_shared_isolate")
+    sh("flutter", "pub", "add", "fcm_shared_isolate:4.0.0")
     sh("sed", "-i", "", "s,//<GOOGLE_SERVICES>,,g", "../../lib/utils/background_push.dart")
     sh("flutter", "clean")
     sh("flutter", "pub", "get")
@@ -103,6 +103,7 @@ platform :ios do
       automatic_release: true,
       force: true,
       skip_screenshots: true,
+      run_precheck_before_submit: false,
     )
   end
 end
